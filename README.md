@@ -28,6 +28,7 @@ TODO:
 * serial numbers?
   (which come in dec, hex, and mod form: 3262790, 31c946, ebrkfh) figure out
   what these are for, apart from unique ids for physical yubikey tokens.
+* rebrand away from `python-yubikey` when we turn into a tool.
 * REMINDER TO CONTINUOUSLY FIND AND REVIEW TODOs in FILES
 
 CLI tool wish list:
