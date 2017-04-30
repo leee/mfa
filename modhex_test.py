@@ -26,8 +26,8 @@ class TestModhex(unittest.TestCase):
     def test_translate_decode(self):
         self.assertEqual(modhex.translate(modhex.modhex), modhex.hexadecimal)
 
-    def test_translate_nothing(self):
-        self.assertIsNone(modhex.translate("mopqswxyz"))
+    def test_translate_bad(self):
+        self.assertRaises(ValueError, modhex.translate, "mopqswxyz")
 
 if __name__ == '__main__':
     unittest.main()

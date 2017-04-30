@@ -25,5 +25,5 @@ def translate(s):
     elif not is_hexadecimal(s) and is_modhex(s):
         return decode(s)
     else:
-        pass # TODO: do we just treat this as a garbage-in-garbage-out situation
-             #       or do we make it so that translate returns an error somehow
+        raise ValueError('A modhex.translate failed because', s,
+            'is not hexadecimal or Modhex and therefore not encode/decodable.')
