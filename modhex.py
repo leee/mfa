@@ -1,3 +1,5 @@
+import string
+
 # Yubico YubiKey Manual v3.4 s6.2: "Modified Hexadecimal (Modhex) encoding"
 hexadecimal = '0123456789abcdef'
 modhex      = 'cbdefghijklnrtuv'
