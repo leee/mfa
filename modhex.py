@@ -22,6 +22,6 @@ def translate(s):
         return encode(s)
     elif not is_hexadecimal(s) and is_modhex(s):
         return decode(s)
-    else
+    else:
         pass # TODO: do we just treat this as a garbage-in-garbage-out situation
              #       or do we make it so that translate returns an error somehow
