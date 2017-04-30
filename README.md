@@ -10,7 +10,6 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
-* Write Modhex shim.
 * Write Modhex tests.
 * Determine Yubico OTP generation algorithm prototype.
 * Write OTP generation algorithm.
