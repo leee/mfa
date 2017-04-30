@@ -25,7 +25,38 @@ TODO:
   button press and wraps.
 * Research and write other Yubico YubiKey methods, and consider refactoring
   to make this more modular with that in mind.
+* serial numbers?
+  (which come in dec, hex, and mod form: 3262790, 31c946, ebrkfh) figure out
+  what these are for, apart from unique ids for physical yubikey tokens.
 * REMINDER TO CONTINUOUSLY FIND AND REVIEW TODOs in FILES
+
+CLI tool wish list:
+* available via package managers for major distributions (apt, brew, yum, ...
+  windows? chocolatey?)
+
+```
+$ # comes with tab completion for commands and configuration-slots
+$ yubikey help
+    new: create a new configuration slot, either as a one-liner or with prompts
+    press: press a configuration slot
+    default: set a default configuration slot
+    help: this message
+$ yubikey press configuration-slot
+...
+$ # suppose you have a "configuration slot" called "test-otp"
+$ yubikey new test-otp "vv uj fr el ne rh" "a2 c3 f9 8d 67 od" "128 bit crap"
+$ yubikey new test-otp
+    public identity: vv uj fr el ne rh (or random)
+    private identity: a2 cf9 8d 67 od
+    secret key: insert 16 bytes of secret sauce here
+$ yubikey press test-otp
+cccjgjgkhcbbirdrfdnlnghhfgrtnnlgedjlftrbdeut
+$ yubikey default test-otp
+$ yubikey
+cccjgjgkhcbbirdrfdnlnghhfgrtnnlgedjlftrbdeut
+$ # maybe include shortcut aliases
+$ # auto copy to keyboard
+```
 
 Thanks:
 * [Yubico YubiKey Manual
