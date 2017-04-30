@@ -28,3 +28,7 @@ TODO:
   button press and wraps.
 * Research and write other Yubico YubiKey methods, and consider refactoring
   to make this more modular with that in mind.
+
+Thanks:
+* [Yubico YubiKey Manual
+  ](https://www.yubico.com/wp-content/uploads/2015/03/YubiKeyManual_v3.4.pdf)
