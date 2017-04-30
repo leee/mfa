@@ -10,7 +10,6 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
-* Write Modhex tests.
 * Determine Yubico OTP generation algorithm prototype.
 * Write OTP generation algorithm.
 * Research how Yubico encrypts the generation with the key and how the final
