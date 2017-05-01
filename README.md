@@ -10,6 +10,8 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
+* Implement ISO13239 CRC16 from Yubico YubiKey Manual v3.4 s6.3.
+* Test suite for CRC16.
 * Write OTP generation algorithm.
 * Research how Yubico encrypts the generation with the key and how the final
   token is produced.
