@@ -10,7 +10,6 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
-* Configure a CI tool.
 * Write yubikey_otp checks.
 * Write yubikey_otp tests.
 * Test against Yubikey's service.
