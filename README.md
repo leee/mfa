@@ -10,9 +10,6 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
-* Write OTP generation algorithm.
-* Research how Yubico encrypts the generation with the key and how the final
-  token is produced.
 * As a design consideration, provide a user with a CLI tool that they can invoke
   with counters and configurations stored in ~/.config or the like, with support
   for multiple software "yubikeys" ideally.
