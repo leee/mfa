@@ -9,7 +9,7 @@ class TestCrc16(unittest.TestCase):
         cs = crc16.get(bs)
         fc = ~cs & 0xffff
         bs = bs + struct.pack("<i", fc)[:2]
-        self.assertTrue(crc16.verify(str(bs)))
+        self.assertTrue(crc16.verify(bs))
 
 if __name__ == '__main__':
     unittest.main()
