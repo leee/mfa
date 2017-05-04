@@ -1,11 +1,16 @@
 import string
+import sys
 
 # Yubico YubiKey Manual v3.4 s6.2: "Modified Hexadecimal (Modhex) encoding"
 hexadecimal = '0123456789abcdef'
 modhex      = 'cbdefghijklnrtuv'
 
-trans_table_encode = string.maketrans(hexadecimal, modhex)
-trans_table_decode = string.maketrans(modhex, hexadecimal)
+if sys.version_info >= (3,0):
+    trans_table_encode = bytes.maketrans(hexadecimal, modhex)
+    trans_table_decode = bytes.maketrans(modhex, hexadecimal)
+else:
+    trans_table_encode = string.maketrans(hexadecimal, modhex)
+    trans_table_decode = string.maketrans(modhex, hexadecimal)
 
 def is_hexadecimal(s):
     return '' == s.strip(hexadecimal)
