@@ -10,6 +10,12 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
+* Configure a CI tool.
+* Write yubikey_otp checks.
+* Write yubikey_otp tests.
+* Test against Yubikey's service.
+* Test against duo.mit.edu.
+* Write the CLI tool pony.
 * As a design consideration, provide a user with a CLI tool that they can invoke
   with counters and configurations stored in ~/.config or the like, with support
   for multiple software "yubikeys" ideally.
