@@ -1,10 +1,14 @@
 # Yubico YubiKey Manual v3.4 s6.3: "CRC calculation and verification"
 # Literally copied the ISO13239 CRC16 algo provided, down to the bitwise ops.
+import sys
 
 def get(bs):
     crc = 0xffff
     for b in bs:
-        crc ^= ord(b)
+        if sys.version_info >= (3,0):
+            crc ^= b
+        else:
+            crc ^= ord(b)
         for i in range(8):
             j = crc & 1
             crc >>= 1
