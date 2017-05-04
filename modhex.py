@@ -6,8 +6,10 @@ hexadecimal = '0123456789abcdef'
 modhex      = 'cbdefghijklnrtuv'
 
 if sys.version_info >= (3,0):
-    trans_table_encode = bytes.maketrans(hexadecimal, modhex)
-    trans_table_decode = bytes.maketrans(modhex, hexadecimal)
+    h = hexadecimal.encode(encoding='UTF-8')
+    m = modhex.encode(encoding='UTF-8')
+    trans_table_encode = bytes.maketrans(h, m)
+    trans_table_decode = bytes.maketrans(m, h)
 else:
     trans_table_encode = string.maketrans(hexadecimal, modhex)
     trans_table_decode = string.maketrans(modhex, hexadecimal)
