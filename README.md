@@ -14,6 +14,8 @@ TODO:
 * Write yubikey_otp tests.
 * Test against Yubikey's service.
 * Test against duo.mit.edu.
+* Clean up `sessionCtr` endian-ness.
+* Clean up how `rnd` is passed around.
 * Write the CLI tool pony.
 * As a design consideration, provide a user with a CLI tool that they can invoke
   with counters and configurations stored in ~/.config or the like, with support
