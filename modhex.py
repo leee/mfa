@@ -11,23 +11,25 @@ if sys.version_info >= (3,0):
 else:
     trans_table_encode = string.maketrans(hexadecimal, modhex)
     trans_table_decode = string.maketrans(modhex, hexadecimal)
-
+'''
 def is_hexadecimal(s):
-    return '' == s.strip(hexadecimal.decode('ascii'))
+    s = interop(s)
+    return '' == s.strip(hexadecimal.decode('utf-8'))
 
 def is_modhex(s):
-    return '' == s.strip(modhex.decode('ascii'))
+    s = interop(s)
+    return '' == s.strip(modhex.decode('utf-8'))
+'''
 
-def encode(input):
-    if sys.version_info < (3,0):
-        s = input.encode('utf-8')
-    else:
-        s = input
+def encode(s):
+    s = interop_trans(s)
     return s.translate(trans_table_encode)
 
 def decode(s):
+    s = interop_trans(s)
     return s.translate(trans_table_decode)
 
+'''
 def translate(s):
     if is_hexadecimal(s) and not is_modhex(s):
         return encode(s)
@@ -36,3 +38,16 @@ def translate(s):
     else:
         raise ValueError('A modhex.translate failed because', s,
             'is not hexadecimal or Modhex and therefore not encode/decodable.')
+
+def interop(s):
+    if sys.version_info < (3,0):
+        return s.encode('utf-8')
+    else:
+        return s.encode( )
+'''
+
+def interop_trans(s):
+    if sys.version_info < (3,0):
+        return s.encode('utf-8')
+    else:
+        return s

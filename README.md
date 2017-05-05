@@ -11,12 +11,14 @@ Warning:
 
 TODO:
 * Figure out why Python 2 and 3 interoperability is hard.
+  Apparently Python 3 _REQUIRES_ strings to be utf-8?
 * Write yubikey_otp checks.
 * Test against Yubikey's service.
 * Test against duo.mit.edu.
 * Clean up `sessionCtr` endian-ness.
 * Clean up how `rnd` is passed around.
 * Write the CLI tool pony.
+* Make a gif of the pony being used as documentation.
 * As a design consideration, provide a user with a CLI tool that they can invoke
   with counters and configurations stored in ~/.config or the like, with support
   for multiple software "yubikeys" ideally.
