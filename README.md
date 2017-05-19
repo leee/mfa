@@ -10,11 +10,6 @@ Warning:
   evaluated my use case. You better evaluate your own.
 
 TODO:
-* Figure out why Python 2 and 3 interoperability is hard.
-  Apparently Python 3 _REQUIRES_ strings to be utf-8?
-* Write yubikey_otp checks.
-* Test against Yubikey's service.
-* Test against duo.mit.edu.
 * Clean up `sessionCtr` endian-ness.
 * Clean up how `rnd` is passed around.
 * Write the CLI tool pony.
