@@ -1,53 +1,38 @@
-import string
 import sys
 
-hexadecimal = b"0123456789abcdef"
-modhex      = b"cbdefghijklnrtuv"
+hexadecimal_bytes = b"0123456789abcdef"
+modhex_bytes      = b"cbdefghijklnrtuv"
+hexadecimal_unicode = hexadecimal_bytes.decode('ascii')
+modhex_unicode = modhex_bytes.decode('ascii')
 
 # Yubico YubiKey Manual v3.4 s6.2: "Modified Hexadecimal (Modhex) encoding"
+
 if sys.version_info >= (3,0):
-    trans_table_encode = bytes.maketrans(hexadecimal, modhex)
-    trans_table_decode = bytes.maketrans(modhex, hexadecimal)
+    maketrans = bytes.maketrans
 else:
-    trans_table_encode = string.maketrans(hexadecimal, modhex)
-    trans_table_decode = string.maketrans(modhex, hexadecimal)
-'''
+    import string
+    maketrans = string.maketrans
+
+trans_table_encode_bytes = maketrans(hexadecimal_bytes, modhex_bytes)
+trans_table_decode_bytes = maketrans(modhex_bytes, hexadecimal_bytes)
+trans_table_encode_unicode = trans_table_encode_bytes[:128].decode('ascii')
+trans_table_decode_unicode = trans_table_decode_bytes[:128].decode('ascii')
+
+def by_string_type(typedstring, bytesversion, unicodeversion):
+    if isinstance(typedstring, bytes):
+        return bytesversion
+    else:
+        return unicodeversion
+
 def is_hexadecimal(s):
-    s = interop(s)
-    return '' == s.strip(hexadecimal.decode('utf-8'))
+    return len(s.strip(by_string_type(s, hexadecimal_bytes, hexadecimal_unicode))) == 0
 
 def is_modhex(s):
-    s = interop(s)
-    return '' == s.strip(modhex.decode('utf-8'))
-'''
+    return len(s.strip(by_string_type(s, modhex_bytes, modhex_unicode))) == 0
 
 def encode(s):
-    s = interop_trans(s)
-    return s.translate(trans_table_encode)
+    return s.translate(by_string_type(s, trans_table_encode_bytes, trans_table_encode_unicode))
 
 def decode(s):
-    s = interop_trans(s)
-    return s.translate(trans_table_decode)
+    return s.translate(by_string_type(s, trans_table_decode_bytes, trans_table_decode_unicode))
 
-'''
-def translate(s):
-    if is_hexadecimal(s) and not is_modhex(s):
-        return encode(s)
-    elif not is_hexadecimal(s) and is_modhex(s):
-        return decode(s)
-    else:
-        raise ValueError('A modhex.translate failed because', s,
-            'is not hexadecimal or Modhex and therefore not encode/decodable.')
-
-def interop(s):
-    if sys.version_info < (3,0):
-        return s.encode('utf-8')
-    else:
-        return s.encode( )
-'''
-
-def interop_trans(s):
-    if sys.version_info < (3,0):
-        return s.encode('utf-8')
-    else:
-        return s
